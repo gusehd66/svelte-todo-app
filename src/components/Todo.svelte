@@ -1,10 +1,8 @@
 <script>
   import { todos, saveStorage } from "~/store";
   export let todo;
-
-  let isEditMode = false;
   let title = "";
-
+  let isEditMode = false;
   function onEditMode() {
     title = todo.title;
     isEditMode = true;
@@ -15,6 +13,7 @@
   function updateTodo() {
     todo.title = title;
     saveStorage();
+    title = "";
     offEditMode();
   }
   function deleteTodo() {
@@ -34,16 +33,16 @@
           if (e.key === "Enter") updateTodo();
         }}
       />
-      <button on:click={updateTodo} class="btn btn-primary"> OK </button>
-      <button on:click={offEditMode} class="btn btn-secondary"> Cancel </button>
+      <button class="btn btn-primary" on:click={updateTodo}>OK</button>
+      <button class="btn btn-secondary" on:click={offEditMode}>Cancel</button>
     </div>
   {:else}
     <div class="normal-mode">
       <div class="title">
         {todo.title}
       </div>
-      <button on:click={onEditMode} class="btn btn-secondary"> Edit </button>
-      <button on:click={deleteTodo} class="btn btn-danger"> Delete </button>
+      <button class="btn btn-secondary" on:click={onEditMode}>Edit</button>
+      <button class="btn btn-danger" on:click={deleteTodo}>Delete</button>
     </div>
   {/if}
 </div>
@@ -60,7 +59,7 @@
       display: flex;
     }
     .title {
-      flex-grow: 1;
+      flex: 1;
       display: flex;
       align-items: center;
       font-size: 18px;

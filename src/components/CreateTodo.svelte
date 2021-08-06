@@ -3,7 +3,6 @@
   import { todos, saveStorage } from "~/store";
 
   let title = "";
-
   function createTodo() {
     if (!title || !title.trim()) return;
 
@@ -13,9 +12,7 @@
     });
     $todos = $todos;
     saveStorage();
-
     title = "";
-    console.log($todos);
   }
 </script>
 
@@ -33,14 +30,14 @@
 
 <style lang="scss">
   .create-todo {
-    display: flex;
     margin-top: 50px;
+    display: flex;
     .btn {
       width: 130px;
       height: 50px;
+      flex-shrink: 0;
       font-weight: 700;
       margin-left: 10px;
-      flex-shrink: 0;
     }
   }
 </style>

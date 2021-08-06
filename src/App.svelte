@@ -2,7 +2,6 @@
   import { todos } from "~/store";
   import CreateTodo from "~/components/CreateTodo";
   import Todo from "~/components/Todo";
-
   const storageTodos = localStorage.getItem("todos");
   if (storageTodos) {
     $todos = JSON.parse(storageTodos);
